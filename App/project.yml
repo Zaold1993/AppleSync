@@ -1,0 +1,49 @@
+name: AppleSync
+options:
+  bundleIdPrefix: com.applesync
+  deploymentTarget:
+    macOS: "15.0"
+  xcodeVersion: "16.0"
+
+packages:
+  AppleSyncCore:
+    path: ..
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGNING_REQUIRED: NO
+    ENABLE_APP_SANDBOX: NO
+    ENABLE_HARDENED_RUNTIME: NO
+
+targets:
+  AppleSync:
+    type: application
+    platform: macOS
+    sources:
+      - path: AppleSyncApp
+    dependencies:
+      - package: AppleSyncCore
+        product: AppleSyncCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.applesync.manager
+        PRODUCT_NAME: AppleSync
+        INFOPLIST_KEY_CFBundleDisplayName: AppleSync
+        INFOPLIST_KEY_LSUIElement: YES
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
+        INFOPLIST_KEY_NSHumanReadableCopyright: "AppleSync Personal Side-Loader & Backup Manager"
+        GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: YES
+    info:
+      path: AppleSyncApp/Info.plist
+      properties:
+        CFBundleIdentifier: com.applesync.manager
+        CFBundleDisplayName: AppleSync
+        CFBundleName: AppleSync
+        CFBundleShortVersionString: "1.0.0"
+        CFBundleVersion: "1"
+        LSUIElement: true
+        NSUserNotificationAlertStyle: alert

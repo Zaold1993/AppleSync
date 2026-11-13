@@ -1,0 +1,30 @@
+# macOS & Finder
+.DS_Store
+**/.DS_Store
+*.swp
+*~
+
+# Swift Package Manager & Builds
+.build/
+.swiftpm/
+build/
+dist/
+DerivedData/
+*.ipa
+*.xcarchive
+*.app
+
+# Xcode user-specific state
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# Runtime local data (safety guard)
+State/
+Backups/
+Artifacts/
+ProvisioningProxy/
